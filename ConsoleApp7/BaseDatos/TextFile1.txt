@@ -1,0 +1,21 @@
+﻿create database rutas;
+use rutas
+CREATE TABLE Clientes (
+    IdCliente INT PRIMARY KEY IDENTITY,
+    Nombre NVARCHAR(100),
+    TipoCliente NVARCHAR(50)
+);
+
+CREATE TABLE Ventas (
+    IdVenta INT PRIMARY KEY IDENTITY,
+    IdCliente INT,
+    IdRuta INT,
+    CantidadPersonas INT,
+    FOREIGN KEY (IdCliente) REFERENCES Clientes(IdCliente)
+);
+
+CREATE TABLE Rutas (
+    IdRuta INT PRIMARY KEY IDENTITY,
+    NombreRuta NVARCHAR(100),
+    Precio DECIMAL(10, 2)
+);
